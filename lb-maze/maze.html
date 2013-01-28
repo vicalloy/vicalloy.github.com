@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>LB-Maze</title>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.3/underscore-min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  </head>
+  <body style="margin:0;padding:0; width:960px;">
+    <div style="margin: 10px 0 0 10px;">
+      Map Size:
+      <select name="mapsize" id="id-mapsize">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="40">40</option>
+        <option value="60">60</option>
+        <option value="94">94</option>
+      </select>
+      <button id="id-btn-newgame">New Map</button>
+      |
+      <button id="id-btn-solution">Show Solution</button>
+      <br />
+      time: <span id="id-timer">00:00</span>
+    </div>
+    <div>
+      <canvas id="id-canvas" width="950" height="950"> </canvas>
+    </div>
+    <div>
+      <img id="id-man" src="img/icon_e_smile.gif" alt="" style="position: relative;height:6px; width: 6px;" />
+    </div>
+    <script type="text/javascript" src="js/maze.js"> </script>
+  </body>
+</html>
