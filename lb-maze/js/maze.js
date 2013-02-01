@@ -69,7 +69,6 @@
       directions = _.shuffle([0, 1, 2, 3]);
       for (_i = 0, _len = directions.length; _i < _len; _i++) {
         direction = directions[_i];
-        if (!this.walls[direction]) continue;
         pt = this.getNextBlockPos(direction);
         x = pt[0];
         y = pt[1];
@@ -126,20 +125,22 @@
       maxX = mmap.maxX;
       maxY = mmap.maxY;
       solution = [];
+      steps[0][0] = true;
       blockStack = [mmap.mmap[0][0]];
       dowhile = function(so) {
-        var block, nextBlock, o, _i, _len;
+        var block, nextBlock, o, _i, _len, _results;
         block = blockStack.pop();
         nextBlock = so.getNextStep(mmap, steps, block);
         if (nextBlock) {
           blockStack.push(block);
           blockStack.push(nextBlock);
           if (nextBlock.x === maxX - 1 && nextBlock.y === maxY - 1) {
+            _results = [];
             for (_i = 0, _len = blockStack.length; _i < _len; _i++) {
               o = blockStack[_i];
-              solution.push([o.x, o.y]);
+              _results.push(solution.push([o.x, o.y]));
             }
-            return solution.push([maxX - 1, maxY - 1]);
+            return _results;
           }
         }
       };
@@ -365,7 +366,7 @@
     elCanvas.attr('width', pt[0]);
     elCanvas.attr('height', pt[1]);
     elMan.css('left', "12px");
-    elMan.css('top', addPX("-" + elCanvas.css('height'), 7));
+    elMan.css('top', addPX("-" + elCanvas.css('height'), 12));
     return dmap.drawMap();
   };
 
