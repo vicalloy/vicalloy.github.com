@@ -1,5 +1,5 @@
 (function() {
-  var Block, DrawMap, HTML5DrawMap, Map, Solver, addPX, ctx, dmap, elCanvas, elMan, elMapsize, elTimer, end, fmtTime, getNextBlockPos, getRandomInt, go, isWin, manX, manY, mmap, move, newGame, startTime, timer,
+  var Block, DrawMap, HTML5DrawMap, Map, Solver, addPX, ctx, dmap, elCanvas, elMan, elMapsize, elTimer, end, fmtTime, getMapSize, getNextBlockPos, getRandomInt, go, isWin, manX, manY, mmap, move, newGame, new_recode, startTime, timer, uname, update_recode,
     __hasProp = Object.prototype.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor; child.__super__ = parent.prototype; return child; };
 
@@ -367,7 +367,8 @@
     elCanvas.attr('height', pt[1]);
     elMan.css('left', "12px");
     elMan.css('top', addPX("-" + elCanvas.css('height'), 12));
-    return dmap.drawMap();
+    dmap.drawMap();
+    return update_recode();
   };
 
   isWin = function() {
@@ -384,7 +385,7 @@
       move(elMan, direction);
       if (isWin()) {
         end = true;
-        return alert('you win');
+        return new_recode();
       }
     }
   };
@@ -416,8 +417,22 @@
   });
 
   $('#id-btn-solution').click(function() {
-    return dmap.drawSolution();
+    end = true;
+    dmap.drawSolution();
+    return alert("Game Over");
   });
+
+  uname = "passerby";
+
+  getMapSize = function() {
+    return elMapsize.val() + "x" + elMapsize.val();
+  };
+
+  update_recode = function() {};
+
+  new_recode = function() {
+    return alert("Congratulation, you escaped the maze.");
+  };
 
   newGame();
 
