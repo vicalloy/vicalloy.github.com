@@ -9,6 +9,9 @@ body {
 	overflow: hidden;
 	font-size: 18px;
 }
+.restart > i {
+	margin-top: 6px;
+}
 .game-message {
 	display: none;
 }
