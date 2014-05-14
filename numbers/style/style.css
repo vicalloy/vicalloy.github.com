@@ -204,9 +204,6 @@ strong.important {
 	font-weight: bold;
 	cursor: default;
 }
-.tbox .tb-title {
-	font-size: 13px;
-}
 .tbox .tb-val{
 	color:#ffffff;
 	font-size: 22px
