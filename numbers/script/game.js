@@ -125,7 +125,7 @@
             ok = true;
             t.addClass("clicked");
             if (self.step === self.numCount) {
-              self.endGame(clear);
+              self.endGame('clear');
             }
             self.step += 1;
             curStep.text(self.step);
